@@ -62,7 +62,7 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Vertex-Level HalfLambert"
 				//将世界坐标中该顶点接收到的光的方向向量归一化；
 				fixed3 worldLight = normalize(_WorldSpaceLightPos0.xyz);
 
-				//使用兰伯特定律计算漫反射：入射光的颜色*漫反射颜色系数*max（0，dot（顶点法线单位矢量，光源的方向））;
+				//使用半兰伯特定律计算漫反射：入射光的颜色*漫反射颜色系数*max（0，dot（顶点法线单位矢量，光源的方向））;
 				fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(0.5*dot(worldNormal,worldLight+0.5));	//_LightColor0可以获得入射光颜色
 
 				fixed3 color = ambient + diffuse;

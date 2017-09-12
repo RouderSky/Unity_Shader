@@ -65,7 +65,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular Vertex-Level"
 				//观察方向,顶点到摄像机的向量
 				fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld,v.vertex).xyz);
 
-				//计算高光
+				//计算高光，Phone模型
 				fixed3 specular = _LightColor0.rgb*_Specular.rgb*pow(saturate(dot(reflectDir,viewDir)),_Gloss);
 
 				//光照模型之间的运算时可叠加的

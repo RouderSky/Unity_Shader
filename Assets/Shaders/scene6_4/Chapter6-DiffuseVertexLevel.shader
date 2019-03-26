@@ -13,21 +13,21 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Vertex-Level"
 	{
 		Pass
 		{
-			Tags{"LightMode"="ForwardBase"}	//干什么的？可以得到Unity的一些内置光照变量，如_LightColor0(入射光颜色)
+			Tags{"LightMode"="ForwardBase"}
 
 			CGPROGRAM
 
 			#pragma vertex vert
 			#pragma fragment frag
 
-			#include "Lighting.cginc"	//为了使用Unity内置变量
+			#include "Lighting.cginc"
 
-			fixed4 _Diffuse;	//再声明，为了使用属性里面的变量，如_LightColor0(入射光颜色)
+			fixed4 _Diffuse;
 
 			struct a2v
 			{
 				float4 vertex : POSITION;
-				float3 normal : NORMAL;		//这个NORMAL是模型空间的
+				float3 normal : NORMAL;
 			};
 
 			struct v2f
@@ -71,6 +71,6 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Vertex-Level"
 		}
 	}
 
-	Fallback"Diffuse"	//？？？
+	Fallback"Diffuse"
 
 }

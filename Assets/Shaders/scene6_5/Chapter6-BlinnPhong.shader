@@ -65,7 +65,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular Blinn-Phong pixel-Level"
 				fixed3 worldNormal = normalize(i.worldNormal);
 
 				//光线方向
-				fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);		//如果是平行光，则返回光在世界坐标中的方向；如果是其它光源，返回光在世界坐标中的位置
+				fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
 
 				//计算漫反射：兰伯特定律
 				fixed3 diffuse = _LightColor0.rgb*_Diffuse.rgb*saturate(dot(worldNormal,worldLightDir));

@@ -15,7 +15,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular Blinn-Phong pixel-Level"
 	{
 		Pass
 		{
-			Tags{"LightMode" = "ForwardBase"} //？？？
+			Tags{"LightMode" = "ForwardBase"}
 
 			CGPROGRAM
 
@@ -30,7 +30,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular Blinn-Phong pixel-Level"
 
 			struct a2v
 			{
-				float4 vertex : POSITION;	//用到齐次坐标的地方并不多，一般只在顶点变换的过程中用到
+				float4 vertex : POSITION;
 				float3 normal : NORMAL;
 			};
 
@@ -38,7 +38,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular Blinn-Phong pixel-Level"
 			{
 				float4 pos : SV_POSITION;
 				float3 worldNormal : TEXCOORD0;
-				float3 worldPos : TEXCOORD1;		//
+				float3 worldPos : TEXCOORD1;
 			};
 
 			v2f vert(a2v v)
@@ -56,7 +56,6 @@ Shader "Unity Shaders Book/Chapter 6/Specular Blinn-Phong pixel-Level"
 				return o;
 			}
 
-			//片元着色器的所有输入是不是都是经过插值的？是的
 			fixed4 frag(v2f i) : SV_Target
 			{
 				//环境光

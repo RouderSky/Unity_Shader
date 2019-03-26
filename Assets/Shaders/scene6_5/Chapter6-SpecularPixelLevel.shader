@@ -16,7 +16,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular pixel-Level"
 	{
 		Pass
 		{
-			Tags{"LightMode" = "ForwardBase"} //？？？
+			Tags{"LightMode" = "ForwardBase"}
 
 			CGPROGRAM
 
@@ -31,7 +31,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular pixel-Level"
 
 			struct a2v
 			{
-				float4 vertex : POSITION;	//用到齐次坐标的地方并不多，一般只在顶点变换的过程中用到
+				float4 vertex : POSITION;
 				float3 normal : NORMAL;
 			};
 
@@ -39,7 +39,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular pixel-Level"
 			{
 				float4 pos : SV_POSITION;
 				float3 worldNormal : TEXCOORD0;
-				float3 worldPos : TEXCOORD1;		//
+				float3 worldPos : TEXCOORD1;
 			};
 
 			v2f vert(a2v v)
@@ -72,7 +72,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular pixel-Level"
 				fixed3 diffuse = _LightColor0.rgb*_Diffuse.rgb*saturate(dot(worldNormal,worldLightDir));
 
 				//光线反射方向
-				fixed3 reflectDir = normalize(reflect(-worldLightDir,worldNormal));		//这里需要取翻，因为reflect要求输入光源相对于顶点所在的位置坐标，而这里我们使用的是平行光，_WorldSpaceLightPos0返回的是平行光的方向，所以这里我们需要取反获得光源的位置
+				fixed3 reflectDir = normalize(reflect(-worldLightDir,worldNormal));
 
 				//观察方向,顶点到摄像机的向量
 				fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);

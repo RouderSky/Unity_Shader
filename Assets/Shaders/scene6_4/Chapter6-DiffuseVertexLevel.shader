@@ -47,7 +47,7 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Vertex-Level"
 				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;	
 				
 				//将法线转换世界坐标再进行归一化,注意：这里使用了左乘
-				fixed3 worldNormal = normalize(mul(v.normal,(float3x3)unity_WorldToObject));		//为什么这个矩阵一定是正交的？因为我们的模型前提是没有进行缩放的
+				fixed3 worldNormal = normalize(mul(v.normal,(float3x3)unity_WorldToObject));
 
 				//将世界坐标中该顶点接收到的光的方向向量归一化；
 				fixed3 worldLight = normalize(_WorldSpaceLightPos0.xyz);

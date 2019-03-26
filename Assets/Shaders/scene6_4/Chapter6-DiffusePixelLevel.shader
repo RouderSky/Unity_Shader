@@ -13,21 +13,21 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Pixel-Level"
 	{
 		Pass
 		{
-			Tags{"LightMode"="ForwardBase"}	//干什么的？可以得到Unity的一些内置光照变量，如_LightColor0(入射光颜色)
+			Tags{"LightMode"="ForwardBase"}
 
 			CGPROGRAM
 				
 			#pragma vertex vert
 			#pragma fragment frag
 
-			#include "Lighting.cginc"	//为了使用Unity内置变量
+			#include "Lighting.cginc"
 
-			fixed4 _Diffuse;	//再声明，为了使用属性里面的变量，如_LightColor0(入射光颜色)
+			fixed4 _Diffuse;
 
 			struct a2v
 			{
 				float4 vertex : POSITION;
-				float3 normal : NORMAL;		//这个NORMAL是模型空间的
+				float3 normal : NORMAL;
 			};
 
 			struct v2f
@@ -44,13 +44,12 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Pixel-Level"
 				o.pos = mul(UNITY_MATRIX_MVP,v.vertex);		
 
 				//将法线转换世界坐标注意：这里使用了左乘
-				o.worldNormal = mul(v.normal,(float3x3)unity_WorldToObject);		//为什么这个矩阵一定是正交的？因为我们的模型前提是没有进行缩放的
+				o.worldNormal = mul(v.normal,(float3x3)unity_WorldToObject);
 
 				return o;
 			
 			}
 
-			//将所有的运算都搬到了片元着色器中，片元着色器应该是逐像素操作的，不然为什么光照模型放到这边之后运算量会增大；如果是这样，那么片元着色器的输入值应该是顶点数据的插值
 			fixed4 frag(v2f i) : SV_Target
 			{
 				//获取unity当前环境光属性;这种神奇的xyz写法;
@@ -75,6 +74,6 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Pixel-Level"
 		}
 	}
 
-	Fallback"Diffuse"	//？？？
+	Fallback"Diffuse"
 
 }

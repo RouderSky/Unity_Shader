@@ -16,7 +16,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular Vertex-Level"
 	{
 		Pass
 		{
-			Tags{"LightMode" = "ForwardBase"} //？？？
+			Tags{"LightMode" = "ForwardBase"}
 
 			CGPROGRAM
 
@@ -31,7 +31,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular Vertex-Level"
 
 			struct a2v
 			{
-				float4 vertex : POSITION;	//用到齐次坐标的地方并不多，一般只在顶点变换的过程中用到
+				float4 vertex : POSITION;
 				float3 normal : NORMAL;
 			};
 

@@ -1,8 +1,4 @@
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 // Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
@@ -33,11 +29,11 @@ Shader "Unity Shaders Book/Chapter 7/Chapter 7/Single Texture"
 			#pragma vertex vert
 			#pragma fragment frag
 
-			#include "Lighting.cginc"	//为了获得顶点光照颜色_LightColor0
+			#include "Lighting.cginc"
 
 			fixed4 _Color;
 			sampler2D _MainTex;
-			float4 _MainTex_ST;		//tiling代表材质空间是纹理空间的几倍，offset代表材质空间的原点在纹理空间中的什么地方；
+			float4 _MainTex_ST;
 			float4 _Specular;
 			float _Gloss;
 
@@ -72,7 +68,6 @@ Shader "Unity Shaders Book/Chapter 7/Chapter 7/Single Texture"
 				fixed3 worldNormal = normalize(i.worldNormal);
 				fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.worldPos)); 
 
-				//纹理采样：采样时万一坐标uv坐标超出了范围[0,1]，就要依据纹理的导入设置来决定如果处理，有两种方式：repeat、clamp
 				fixed3 albedo = tex2D(_MainTex,i.uv).rgb * _Color.rgb;
 				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
 

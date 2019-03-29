@@ -3,10 +3,10 @@
 // Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 //材质、纹理、着色器的关系：
-//材质是用来收集各种数据的，如：漫反射颜色、高光反射度、纹理图片、自定义变量、材质空间相对于纹理空间的信息以及由meshRender传递过来的顶点信息，然后材质将这些数据传递给着色器；
-//纹理只是材质的一种输入数据之一，这个数据有不同于一般的图片，而是一般的图片信息加上额外信息组成，如：WrapMode展开模式、FilterMode过滤模式（当图片呈现在摄像机中存在缩放是的抗锯齿效果）、Generate Mip Mapping生成多级渐远纹理（预先通过过滤生成大小不同的纹理）；
+//材质收集各种数据(shader需要的参数、meshRender传递过来的顶点信息)然后传递给shader；
+//纹理只是材质的一种输入数据之一，这个数据有不同于一般的图片，而是一般的图片信息加上额外信息组成，如：WrapMode展开模式、FilterMode过滤模式、Generate Mip Mapping生成多级渐远纹理
 //着色器是对所有信息进行加工处理的场所，计算这个材质的最终渲染表现；
-//ps：注意模型贴上的是材质，而不是纹理，所以我认为还有材质空间和纹理空间之分；
+//ps：注意模型贴上的是材质，而不是纹理，所以我认为还有材质uv坐标空间和纹理uv坐标空间之分；
 
 Shader "Unity Shaders Book/Chapter 7/Chapter 7/Single Texture"
 {
@@ -84,7 +84,6 @@ Shader "Unity Shaders Book/Chapter 7/Chapter 7/Single Texture"
 			}
 
 			ENDCG
-
 		}
 	}
 

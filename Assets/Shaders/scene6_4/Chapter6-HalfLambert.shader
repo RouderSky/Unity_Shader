@@ -75,6 +75,6 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Vertex-Level HalfLambert"
 		}
 	}
 
-	Fallback"Diffuse"	//？？？
+	Fallback"Diffuse"
 
 }

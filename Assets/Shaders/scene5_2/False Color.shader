@@ -38,7 +38,7 @@
 				//可视化第二组纹理坐标
 //				o.color = fixed4(v.texcoord1.xy,0.0,1.0);	//这里这个用法好奇怪，fixed4有多少种构造方法，texcoord1取值的方法
 			
-				//可视化第一组纹理坐标的的小数部分，没看懂？？？
+				//可视化第一组纹理坐标的的小数部分，没看懂？
 //				o.color = frac(v.texcoord);
 //				if(any(saturate(v.texcoord) - v.texcoord))
 //					o.color.b = 0.5;

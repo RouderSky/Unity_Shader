@@ -30,7 +30,7 @@
 			struct v2f
 			{
 				float4 pos : SV_POSITION;	//SV_POSITION告诉Unity，这个变量存储了裁剪空间坐标；从顶点着色器到片元着色器必须要有的数据，只有这个类型具有特殊意义；其它数据都是用户自己使用，渲染管线不管；
-				fixed3 color : COLOR0;		//COLOR0这个声明有什么用？用来声明大概是用来声明使用什么寄存器的，这些声明都要写上；
+				fixed3 color : COLOR0;
 			};
 
 

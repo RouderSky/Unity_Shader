@@ -13,7 +13,7 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Vertex-Level HalfLambert"
 	{
 		Pass
 		{
-			Tags{"LightMode"="ForwardBase"}	//干什么的？可以得到Unity的一些内置光照变量，如_LightColor0(入射光颜色)
+			Tags{"LightMode"="ForwardBase"}
 
 			CGPROGRAM
 
@@ -44,7 +44,7 @@ Shader "Unity Shader Book/Chapter 6/Diffuse Vertex-Level HalfLambert"
 				o.pos = mul(UNITY_MATRIX_MVP,v.vertex);		
 
 				//将法线转换世界坐标注意：这里使用了左乘
-				o.worldNormal = mul(v.normal,(float3x3)unity_WorldToObject);		//为什么这个矩阵一定是正交的？因为我们的模型前提是没有进行缩放的
+				o.worldNormal = mul(v.normal,(float3x3)unity_WorldToObject);
 
 				return o;
 			

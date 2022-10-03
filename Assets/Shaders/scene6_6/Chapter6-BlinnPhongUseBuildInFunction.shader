@@ -15,7 +15,7 @@ Shader "Unity Shaders Book/Chapter 6/Specular Blinn-Phong UseBuildInFunction pix
 	{
 		Pass
 		{
-			Tags{"LightMode" = "ForwardBase"} //？？？
+			Tags{"LightMode" = "ForwardBase"}
 
 			CGPROGRAM
 
